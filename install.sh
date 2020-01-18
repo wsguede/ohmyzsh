@@ -23,11 +23,11 @@ yes | cp -R /etc/skel/ /root/
 
 
 # Change adduser to use zsh by default. Also change root user to use zsh
-sed -i 's#^\(DSHELL\s*=\s*\).*$#\1/bin/zsh#' /etc/adduser.conf
+useradd -D --shell /bin/zsh
 useradd -s /bin/zsh root
 
-
+export ZSH=/etc/oh-my-zsh
 # install oh-my-zsh globally
-ZSH="/etc/oh-my-zsh" sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 # add syntax highlighting to the global config. This might be a bad idea. Will probably never get updated, might get overwritten on upgrade
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH}/plugins/zsh-syntax-highlighting
