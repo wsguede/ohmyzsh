@@ -15,7 +15,7 @@ apt clean
 rm -f /etc/skel/.profile /etc/skel/.bash*
 curl -fsSLo /etc/skel/.zshrc "https://raw.githubusercontent.com/wsguede/ohmyzsh/master/.zshrc"
 mkdir -p /etc/skel/.oh-my-zsh/plugins /etc/skel/.oh-my-zsh/themes
-chmod -R 644 /etc/skel
+chmod -R 755 /etc/skel
 chown root:root /etc/skel
 # change root to have zsh file
 rm -f /root/.profile /root/.bash*
